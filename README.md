@@ -1,12 +1,12 @@
-# 🦰 Face Verification System using Siamese Networks and NAS
+# 🧠 Face Verification System using Siamese Networks and NAS
 
 ## 📜 Project Overview
 
 This project implements a **Face Verification System** that verifies if two given images belong to the same person.  
 We designed the system in **two stages**:
 
-1. **Custom CNN Siamese Network (One Image Per Class)**  
-2. **Enhanced Siamese Network using Neural Architecture Search (NAS) and MobileNetV2 (Five Images Per Class)**
+1. **Custom CNN Siamese Network with NAS (One Image Per Class)**  
+2. **Enhanced Siamese Network using MobileNetV2 (Five Images Per Class)**
 
 By progressively improving the architecture and dataset, we achieved **significant boosts in model performance**.
 
@@ -14,23 +14,23 @@ By progressively improving the architecture and dataset, we achieved **significa
 
 ## 🏗️ Project Structure
 
-- **Stage 1: Basic Siamese Network**
-  - Custom lightweight CNN was designed as the feature extractor.
+- **Stage 1: Basic Siamese Network with NAS**
+  - Designed a custom lightweight CNN from scratch.
+  - Performed **Neural Architecture Search (NAS)** to further optimize the CNN architecture.
   - Trained using **one image per class** to simulate few-shot learning conditions.
   - Achieved basic verification accuracy suitable for small datasets.
 
-- **Stage 2: Advanced Siamese Network with NAS and MobileNetV2**
-  - Performed **Neural Architecture Search (NAS)** to find optimal CNN blocks.
-  - Swapped the custom CNN with **MobileNetV2** backbone for richer feature extraction.
+- **Stage 2: Advanced Siamese Network with MobileNetV2**
+  - Loaded **MobileNetV2** pretrained on ImageNet as the feature extractor.
   - Increased the training dataset to **five images per class** for stronger generalization.
+  - Fine-tuned MobileNetV2 inside the Siamese architecture.
   - Achieved significantly higher verification accuracy.
 
 ---
 
 ## 📈 Highlights
 
-✅ Designed from scratch: **Own CNN inside a Siamese Network**.  
-✅ Implemented **Neural Architecture Search** to optimize feature extractors.  
+✅ Designed custom CNN architecture inside a Siamese Network with NAS optimization.  
 ✅ Integrated **MobileNetV2** to replace custom CNN and boost accuracy.  
 ✅ Adapted the system from **few-shot to medium-shot learning** (1 image ➔ 5 images per class).  
 ✅ Built a **production-ready face verification pipeline**.
@@ -46,7 +46,7 @@ By progressively improving the architecture and dataset, we achieved **significa
 - **Final Dense Layer:** Predicts similarity score (0 = different, 1 = same).
 
 Initially:
-- CNN = Custom-designed lightweight architecture.
+- CNN = Custom-designed CNN optimized with NAS.
 
 Later:
 - CNN = **MobileNetV2 (pretrained on ImageNet)** + fine-tuned layers.
@@ -66,7 +66,7 @@ Later:
    pip install -r requirements.txt
    ```
 
-3. Train the basic Siamese Network:
+3. Train the basic Siamese Network with NAS:
    ```bash
    python train_custom_cnn_siamese.py
    ```
@@ -85,10 +85,10 @@ Later:
 
 ## 📊 Results
 
-| Stage | Backbone        | Dataset Size | Accuracy |
-|:-----:|:----------------:|:------------:|:--------:|
-| 1     | Custom CNN       | 1 image/class | Decent   |
-| 2     | MobileNetV2 + NAS | 5 images/class | Excellent |
+| Stage | Backbone               | Dataset Size  | Accuracy |
+|:-----:|:-----------------------:|:-------------:|:--------:|
+| 1     | Custom CNN + NAS         | 1 image/class | Decent   |
+| 2     | MobileNetV2              | 5 images/class| Excellent |
 
 (You can replace "Decent" and "Excellent" with actual numbers after evaluation.)
 
@@ -122,14 +122,14 @@ Later:
 
 ---
 
-# 🌟 Final Thoughts
+# 🎯 Final Thoughts
 
 This project demonstrates a **strong and scalable Face Verification pipeline**, built from scratch and enhanced using modern techniques like **NAS** and **Transfer Learning**.  
 It reflects the evolution of a basic AI system into a **production-level, high-accuracy model** ready for real-world applications.
 
 ---
 
-# 📌 Aesthetic Touch
+# 📎 Aesthetic Touch
 
 ✅ Properly documented.  
 ✅ Logical project evolution (one-image ➔ five-image learning).  
